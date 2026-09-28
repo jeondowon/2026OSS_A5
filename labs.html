@@ -8,6 +8,8 @@
   <body>
     <!-- 클릭 버튼 -->
     <button id="clickBtn" onclick="clickMe()">Click Me</button>
+    <!-- 클릭 버튼2-->
+    <button id="clickBtn2">Click Me2</button>
     <!-- 덧셈 계산기 -->
     <p style="font-weight: bold">덧셈 계산기</p>
     <input id="num1" style="width: 50px" />
@@ -16,7 +18,7 @@
     <input id="result" readonly style="width: 50px" />
 
     <script>
-      //클릭버튼
+      //클릭버튼 예전방법
       function clickMe() {
         //const btn = document.querySelector("#clickBtn");
         const btn = document.getElementById("clickBtn");
@@ -24,6 +26,18 @@
 
         //alert("버튼이 클릭되었습니다.");
       }
+
+      window.addEventListener("load", function () {
+        const btn = document.querySelector("#clickBtn");
+        btn.innerText = "loaded";
+      });
+
+      //클릭버튼 현재적인 방법
+      const clickBtn2 = document.querySelector("#clickBtn2");
+      clickBtn2.addEventListener("click", function () {
+        clickBtn2.innerText = "clicked";
+      });
+
       //덧셈 계산기
       function add() {
         const num1 = document.querySelector("#num1").value;
