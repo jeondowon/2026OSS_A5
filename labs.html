@@ -6,6 +6,9 @@
     <title>Calculator</title>
   </head>
   <body>
+    <!-- 클릭 버튼 -->
+    <button id="clickBtn" onclick="clickMe()">Click Me</button>
+    <!-- 덧셈 계산기 -->
     <p style="font-weight: bold">덧셈 계산기</p>
     <input id="num1" style="width: 50px" />
     <input id="num2" style="width: 50px" />
@@ -13,6 +16,15 @@
     <input id="result" readonly style="width: 50px" />
 
     <script>
+      //클릭버튼
+      function clickMe() {
+        //const btn = document.querySelector("#clickBtn");
+        const btn = document.getElementById("clickBtn");
+        btn.innerText = "clicked";
+
+        //alert("버튼이 클릭되었습니다.");
+      }
+      //덧셈 계산기
       function add() {
         const num1 = document.querySelector("#num1").value;
         const num2 = document.querySelector("#num2").value;
