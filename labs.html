@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <p style="font-weight: bold">덧셈 계산기</p>
+    <input id="num1" style="width: 50px" />
+    <input id="num2" style="width: 50px" />
+    <button id="addBtn" onClick="add()" style="width: 25px">+</button>
+    <input id="result" readonly style="width: 50px" />
+
+    <script>
+      function add() {
+        const num1 = document.querySelector("#num1").value;
+        const num2 = document.querySelector("#num2").value;
+        const result = Number(num1) + Number(num2);
+
+        document.querySelector("#result").value = result;
+      }
+    </script>
+  </body>
+</html>
