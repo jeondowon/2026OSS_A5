@@ -53,45 +53,9 @@
           <th>관리</th>
         </tr>
       </thead>
-      <tbody id="memberList">
-        <tr>
-          <td>1</td>
-          <td>전도원</td>
-          <td>22300650</td>
-          <td>남자</td>
-          <td>컴퓨터공학심화</td>
-          <td>jeondowon.dev@gmail.com</td>
-          <td>
-            <button type="button">수정</button>
-            <button type="button">삭제</button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>송주아</td>
-          <td>22300404</td>
-          <td>여자</td>
-          <td>컴퓨터공학심화</td>
-          <td>jooah@gmail.com</td>
-          <td>
-            <button type="button">수정</button>
-            <button type="button">삭제</button>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>서정민</td>
-          <td>22300123</td>
-          <td>남자</td>
-          <td>컴퓨터공학심화</td>
-          <td>jungmin@gmail.com</td>
-          <td>
-            <button type="button">수정</button>
-            <button type="button">삭제</button>
-          </td>
-        </tr>
-      </tbody>
+      <tbody id="memberList"></tbody>
     </table>
+
     <script>
       let members = [
         {
@@ -119,6 +83,53 @@
           email: "jungmin@gmail.com",
         },
       ];
+
+      const tableBody = document.getElementById("memberList");
+
+      function render() {
+        members.forEach(function (m) {
+          const tr = document.createElement("tr");
+
+          const tdId = document.createElement("td");
+          tdId.innerText = m.id;
+          tr.appendChild(tdId);
+
+          const tdName = document.createElement("td");
+          tdName.innerText = m.name;
+          tr.appendChild(tdName);
+
+          const tdStudentId = document.createElement("td");
+          tdStudentId.innerText = m.studentId;
+          tr.appendChild(tdStudentId);
+
+          const tdGender = document.createElement("td");
+          tdGender.innerText = m.gender;
+          tr.appendChild(tdGender);
+
+          const tdMajor = document.createElement("td");
+          tdMajor.innerText = m.major;
+          tr.appendChild(tdMajor);
+
+          const tdEmail = document.createElement("td");
+          tdEmail.innerText = m.email;
+          tr.appendChild(tdEmail);
+
+          tableBody.appendChild(tr);
+
+          const tdManage = document.createElement("td");
+
+          const editBtn = document.createElement("button");
+          editBtn.innerText = "수정";
+          tdManage.appendChild(editBtn);
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.innerText = "삭제";
+          tdManage.appendChild(deleteBtn);
+
+          tr.appendChild(tdManage);
+        });
+      }
+      render();
     </script>
   </body>
 </html>
