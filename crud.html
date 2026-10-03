@@ -134,40 +134,46 @@
 
       let nextId = 4;
 
-      const addBtn = document.getElementById("addBtn");
-      addBtn.addEventListener("click", function () {
-        const name = document.getElementById("name");
-        const studentId = document.getElementById("studentId");
-        const gender = document.getElementById("gender");
-        const major = document.getElementById("major");
-        const email = document.getElementById("email");
+      const name = document.getElementById("name");
+      const studentId = document.getElementById("studentId");
+      const gender = document.getElementById("gender");
+      const major = document.getElementById("major");
+      const email = document.getElementById("email");
 
+      function validate() {
         if (name.value.trim() === "") {
           alert("이름을 입력하세요.");
           name.focus();
-          return;
+          return false;
         }
         if (studentId.value.length !== 8) {
           alert("학번이 8자리 숫자인지 확인하세요");
           studentId.focus();
-          return;
+          return false;
         }
         if (gender.value === "성별") {
           alert("성별을 선택하세요");
           gender.focus();
-          return;
+          return false;
         }
         if (major.value === "전공") {
           alert("전공을 선택하세요");
           major.focus();
-          return;
+          return false;
         }
         if (email.value.trim() === "" || !email.checkValidity()) {
           alert("이메일 형식을 확인해주세요.");
           email.focus();
+          return false;
+        }
+        return true;
+      }
+
+      const addBtn = document.getElementById("addBtn");
+      addBtn.addEventListener("click", function () {
+        if (!validate()) {
           return;
         }
-
         const newMember = {
           id: nextId,
           name: name.value,
