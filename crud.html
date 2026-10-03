@@ -87,6 +87,7 @@
       const tableBody = document.getElementById("memberList");
 
       function render() {
+        tableBody.innerHTML = "";
         members.forEach(function (m) {
           const tr = document.createElement("tr");
 
@@ -130,6 +131,31 @@
         });
       }
       render();
+
+      let nextId = 4;
+
+      const addBtn = document.getElementById("addBtn");
+      addBtn.addEventListener("click", function () {
+        const name = document.getElementById("name");
+        const studentId = document.getElementById("studentId");
+        const gender = document.getElementById("gender");
+        const major = document.getElementById("major");
+        const email = document.getElementById("email");
+
+        const newMember = {
+          id: nextId,
+          name: name.value,
+          studentId: studentId.value,
+          gender: gender.value,
+          major: major.value,
+          email: email.value,
+        };
+
+        members.push(newMember);
+        nextId++;
+
+        render();
+      });
     </script>
   </body>
 </html>
