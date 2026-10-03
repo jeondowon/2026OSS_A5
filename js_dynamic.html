@@ -4,16 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript DOM Practice</title>
+    <style>
+      #body {
+        margin: 20px;
+        background-color: #ebe4cf;
+      }
+
+      #h1 {
+        color: #000000;
+        padding-bottom: 10px;
+      }
+
+      #input {
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      #addBtn {
+        padding: 5px;
+        font-size: 16px;
+        margin-left: 5px;
+        color: #000000;
+        background-color: #90c899;
+      }
+
+      #list {
+        padding: 0;
+        margin-top: 10px;
+      }
+
+      .list {
+        align-items: center;
+        margin-top: 5px;
+      }
+
+      .list button {
+        margin-left: 10px;
+        color: #000000;
+        background-color: #de8a8a;
+      }
+    </style>
   </head>
-  <body>
-    <h1>과일 목록</h1>
-    <input type="text" id="fruit" />
+  <body id="body">
+    <h1 id="h1">리스트 추가/삭제</h1>
+    <input type="text" id="input" />
     <button id="addBtn">추가</button>
     <ul id="list"></ul>
   </body>
   <script>
     function addItem() {
-      const input = document.querySelector("#fruit");
+      const input = document.querySelector("#input");
       const text = input.value.trim();
       // 공백이면 경초 띄우고 return
       if (text === "") {
@@ -23,6 +63,7 @@
 
       //리스트 만들기
       const li = document.createElement("li");
+      li.classList.add("list");
 
       // span 안에 입력값 넣기
       const span = document.createElement("span");
