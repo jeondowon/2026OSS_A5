@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript DOM Practice</title>
+  </head>
+  <body>
+    <h1>과일 목록</h1>
+    <input type="text" id="fruit" />
+    <button id="addBtn">추가</button>
+    <ul id="list"></ul>
+  </body>
+  <script>
+    function addItem() {
+      const input = document.querySelector("#fruit");
+      const text = input.value.trim();
+      // 공백이면 경초 띄우고 return
+      if (text === "") {
+        alert("문자열을 입력하세요.");
+        return;
+      }
+
+      //리스트 만들기
+      const li = document.createElement("li");
+
+      // span 안에 입력값 넣기
+      const span = document.createElement("span");
+      span.innerText = text;
+      // 삭제 버튼 추가
+      const delBtn = document.createElement("button");
+      delBtn.innerText = "삭제";
+      delBtn.addEventListener("click", function () {
+        li.remove();
+      });
+      // li에 span과 delBtn 추가
+      li.appendChild(span);
+      li.appendChild(delBtn);
+      document.querySelector("#list").appendChild(li);
+
+      // 추가 후 입력창 초기화
+      input.value = "";
+      input.focus();
+    }
+
+    window.addEventListener("load", function () {
+      document.querySelector("#addBtn").addEventListener("click", addItem);
+    });
+  </script>
+</html>
