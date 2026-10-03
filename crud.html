@@ -153,7 +153,7 @@
           name: "전도원",
           studentId: 22300650,
           gender: "남자",
-          major: "컴퓨터공학심화",
+          major: "AI컴퓨터전자",
           email: "jeondowon.dev@gmail.com",
         },
         {
@@ -161,7 +161,7 @@
           name: "송주아",
           studentId: 22300404,
           gender: "여자",
-          major: "컴퓨터공학심화",
+          major: "AI컴퓨터전자",
           email: "jooah@gmail.com",
         },
         {
@@ -169,7 +169,7 @@
           name: "서정민",
           studentId: 22300123,
           gender: "남자",
-          major: "컴퓨터공학심화",
+          major: "AI컴퓨터전자",
           email: "jungmin@gmail.com",
         },
       ];
@@ -268,7 +268,7 @@
           name.focus();
           return false;
         }
-        if (studentId.value.length !== 8) {
+        if (!/^\d{8}$/.test(studentId.value)) {
           alert("학번이 8자리 숫자인지 확인하세요");
           studentId.focus();
           return false;
