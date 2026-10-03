@@ -37,7 +37,7 @@
         <label for="email">이메일:</label>
         <input type="email" id="email" placeholder="이메일" />
       </div>
-      <button id="addBtn" type="button">Add</button>
+      <button id="addBtn" type="button">저장</button>
     </form>
 
     <h2>회원 목록</h2>
@@ -121,6 +121,15 @@
 
           const editBtn = document.createElement("button");
           editBtn.innerText = "수정";
+          editBtn.addEventListener("click", function () {
+            name.value = m.name;
+            studentId.value = m.studentId;
+            gender.value = m.gender;
+            major.value = m.major;
+            email.value = m.email;
+            editingId = m.id;
+            //console.log(editingId);
+          });
           tdManage.appendChild(editBtn);
 
           const deleteBtn = document.createElement("button");
@@ -133,6 +142,7 @@
       render();
 
       let nextId = 4;
+      let editingId = null;
 
       const name = document.getElementById("name");
       const studentId = document.getElementById("studentId");
@@ -174,17 +184,30 @@
         if (!validate()) {
           return;
         }
-        const newMember = {
-          id: nextId,
-          name: name.value,
-          studentId: Number(studentId.value),
-          gender: gender.value,
-          major: major.value,
-          email: email.value,
-        };
+        if (editingId === null) {
+          const newMember = {
+            id: nextId,
+            name: name.value,
+            studentId: Number(studentId.value),
+            gender: gender.value,
+            major: major.value,
+            email: email.value,
+          };
+          members.push(newMember);
+          nextId++;
+        } else {
+          const target = members.find(function (member) {
+            return member.id === editingId;
+          });
+          target.name = name.value;
+          target.studentId = Number(studentId.value);
+          target.gender = gender.value;
+          target.major = major.value;
+          target.email = email.value;
 
-        members.push(newMember);
-        nextId++;
+          editingId = null;
+        }
+
         render();
         document.getElementById("memberForm").reset();
       });
