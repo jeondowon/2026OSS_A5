@@ -143,6 +143,10 @@
                   return false;
                 }
               });
+              if (editingId === m.id) {
+                editingId = null;
+                document.getElementById("memberForm").reset();
+              }
               render();
             }
           });
