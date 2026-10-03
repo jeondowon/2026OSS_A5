@@ -1,37 +1,124 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>동아리 회원 관리</title>
   </head>
-  <script>
-    let members = [
-      {
-        id: 1,
-        name: "전도원",
-        studentId: 22300650,
-        gender: "남자",
-        major: "컴퓨터공학심화",
-        email: "jeondowon.dev@gmail.com",
-      },
-      {
-        id: 2,
-        name: "송주아",
-        studentId: 22300404,
-        gender: "여자",
-        major: "컴퓨터공학심화",
-        email: "junsun@gmail.com",
-      },
-      {
-        id: 3,
-        name: "서정민",
-        studentId: 22300123,
-        gender: "남자",
-        major: "컴퓨터공학심화",
-        email: "jungmin@gmail.com",
-      },
-    ];
-  </script>
-  <body></body>
+  <body>
+    <h1>동아리 회원 관리 CRUD</h1>
+    <h2>회원 입력</h2>
+    <form id="memberForm">
+      <div>
+        <label for="name">이름:</label>
+        <input type="text" id="name" placeholder="이름" />
+      </div>
+      <div>
+        <label for="studentId">학번:</label>
+        <input type="number" id="studentId" placeholder="학번" />
+      </div>
+      <div>
+        <label for="gender">성별:</label>
+        <select id="gender">
+          <option value="성별" disabled selected>성별</option>
+          <option value="남자">남자</option>
+          <option value="여자">여자</option>
+        </select>
+      </div>
+      <div>
+        <label for="major">전공:</label>
+        <select id="major">
+          <option value="전공" disabled selected>전공</option>
+          <option value="컴퓨터공학심화">컴퓨터공학심화</option>
+          <option value="소프트웨어공학">소프트웨어공학</option>
+        </select>
+      </div>
+      <div>
+        <label for="email">이메일:</label>
+        <input type="email" id="email" placeholder="이메일" />
+      </div>
+      <button id="addBtn" type="button">Add</button>
+    </form>
+
+    <h2>회원 목록</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>이름</th>
+          <th>학번</th>
+          <th>성별</th>
+          <th>전공</th>
+          <th>이메일</th>
+          <th>관리</th>
+        </tr>
+      </thead>
+      <tbody id="memberList">
+        <tr>
+          <td>1</td>
+          <td>전도원</td>
+          <td>22300650</td>
+          <td>남자</td>
+          <td>컴퓨터공학심화</td>
+          <td>jeondowon.dev@gmail.com</td>
+          <td>
+            <button type="button">수정</button>
+            <button type="button">삭제</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>송주아</td>
+          <td>22300404</td>
+          <td>여자</td>
+          <td>컴퓨터공학심화</td>
+          <td>jooah@gmail.com</td>
+          <td>
+            <button type="button">수정</button>
+            <button type="button">삭제</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>서정민</td>
+          <td>22300123</td>
+          <td>남자</td>
+          <td>컴퓨터공학심화</td>
+          <td>jungmin@gmail.com</td>
+          <td>
+            <button type="button">수정</button>
+            <button type="button">삭제</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      let members = [
+        {
+          id: 1,
+          name: "전도원",
+          studentId: 22300650,
+          gender: "남자",
+          major: "컴퓨터공학심화",
+          email: "jeondowon.dev@gmail.com",
+        },
+        {
+          id: 2,
+          name: "송주아",
+          studentId: 22300404,
+          gender: "여자",
+          major: "컴퓨터공학심화",
+          email: "jooah@gmail.com",
+        },
+        {
+          id: 3,
+          name: "서정민",
+          studentId: 22300123,
+          gender: "남자",
+          major: "컴퓨터공학심화",
+          email: "jungmin@gmail.com",
+        },
+      ];
+    </script>
+  </body>
 </html>
