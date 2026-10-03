@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동적 리스트</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <h1>이름</h1>
+        <input type="text" id="name" placeholder="이름" />
+      </div>
+      <div>
+        <h1>이메일</h1>
+        <input type="text" id="email" placeholder="이메일" />
+      </div>
+      <br />
+      <input type="submit" value="등록" />
+    </form>
+    <ul id="list"></ul>
+  </body>
+  <script>
+    function addList() {
+      const list = document.querySelector("#list");
+      list.innerHTML = "";
+
+      const fruits = document.querySelector("#fruits").value.split(",");
+      for (let i = 0; i < fruits.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = fruits[i].trim();
+        list.appendChild(li);
+      }
+    }
+
+    function deleteList() {
+      const items = document.querySelectorAll("#list li");
+      for (let i = 0; i < items.length; i++) {
+        items[i].remove();
+      }
+    }
+
+    window.addEventListener("load", function () {
+      document.querySelector("#addBtn").addEventListener("click", addList);
+      document.querySelector("#delBtn").addEventListener("click", deleteList);
+    });
+  </script>
+</html>
