@@ -142,10 +142,36 @@
         const major = document.getElementById("major");
         const email = document.getElementById("email");
 
+        if (name.value.trim() === "") {
+          alert("이름을 입력하세요.");
+          name.focus();
+          return;
+        }
+        if (studentId.value.length !== 8) {
+          alert("학번이 8자리 숫자인지 확인하세요");
+          studentId.focus();
+          return;
+        }
+        if (gender.value === "성별") {
+          alert("성별을 선택하세요");
+          gender.focus();
+          return;
+        }
+        if (major.value === "전공") {
+          alert("전공을 선택하세요");
+          major.focus();
+          return;
+        }
+        if (email.value.trim() === "" || !email.checkValidity()) {
+          alert("이메일 형식을 확인해주세요.");
+          email.focus();
+          return;
+        }
+
         const newMember = {
           id: nextId,
           name: name.value,
-          studentId: studentId.value,
+          studentId: Number(studentId.value),
           gender: gender.value,
           major: major.value,
           email: email.value,
@@ -153,8 +179,8 @@
 
         members.push(newMember);
         nextId++;
-
         render();
+        document.getElementById("memberForm").reset();
       });
     </script>
   </body>
